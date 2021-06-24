@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 install_requirements = [
-    "apache-airflow>=1.10.4",
+    "apache-airflow",
     "prometheus_client>=0.4.2",
 ]
 
