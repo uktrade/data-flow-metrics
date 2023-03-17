@@ -148,11 +148,11 @@ def get_celery_current_and_max_workers_by_queue():
             worker_counts_by_queue[queue] = worker_counts_by_queue.get(queue, {})
             worker_counts_by_queue[queue]["max"] = (
                 worker_counts_by_queue[queue].get("max", 0)
-                + stats[celery_host]["autoscaler"]["max"]
+                + stats[celery_host].get("autoscaler", {"max": 0})["max"]
             )
             worker_counts_by_queue[queue]["current"] = (
                 worker_counts_by_queue[queue].get("current", 0)
-                + stats[celery_host]["autoscaler"]["qty"]
+                + stats[celery_host].get("autoscaler", {"qty": 0})["qty"]
             )
 
         worker_counts_by_queue[queue]["available"] = (
